@@ -76,7 +76,7 @@ app.post('/api/register', upload.single('resume'), (req, res) => {
     collegeName,
     courseDetails,
     areaOfInterest,
-    programmingsSkills,
+    programmingSkills,
     address,
     yearOfPassing,
     email,
@@ -89,9 +89,9 @@ app.post('/api/register', upload.single('resume'), (req, res) => {
   const areasOfInterest = Array.isArray(req.body.areaOfInterest)
     ? req.body.areaOfInterest.join(',')
     : req.body.areaOfInterest;
-  const programmingSkills = Array.isArray(req.body.programmingsSkills)
-    ? req.body.programmingsSkills.join(',')
-    : req.body.programmingsSkills;
+  const programmingSkills = Array.isArray(req.body.programmingSkills)
+    ? req.body.programmingSkills.join(',')
+    : req.body.programmingSkills;
 const date = new Date()
 const registrationDate = date.toISOString().slice(0, 19).replace('T', ' ');
 console.log('Received form data with submission timestamp:',registrationDate);
