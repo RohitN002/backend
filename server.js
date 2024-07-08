@@ -13,10 +13,10 @@ const port = 3001;
 // Setup MySQL connection
 const db = mysql.createConnection({
   port :3306,
-  host: 'bgkgqpzlmprakmflc0f6-mysql.services.clever-cloud.com',
-  user: 'ulb0lc3arbvcl83e',
-  password: 'xgFalOBMDYtiL5TlEHXL',
-  database: 'bgkgqpzlmprakmflc0f6' 
+  host: 'bvsieefv6chvhwv5i1g6-mysql.services.clever-cloud.com',
+  user: 'ufpid2xbzzalxifo',
+  password: 'vkOqS0TiQivL9qA2p6Ym',
+  database: 'bvsieefv6chvhwv5i1g6' 
 });
 
 db.connect((err) => {
@@ -27,37 +27,37 @@ db.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
-// const createUsersTable = () => {
-//   const sql = `
-//     CREATE TABLE IF NOT EXISTS Students (
-//       id INT AUTO_INCREMENT PRIMARY KEY,
-//       studentName VARCHAR(100) NOT NULL,
-//       dob DATE NOT NULL,
-//       fatherName VARCHAR(100) NOT NULL,
-//       mobileNumber VARCHAR(15) NOT NULL,
-//       collegeName VARCHAR(100),
-//       courseDetails VARCHAR(100),
-//       areaOfInterest VARCHAR(100),
-//       programmingSkills VARCHAR(100),
-//       address VARCHAR(255),
-//       yearOfPassingOut YEAR,
-//       email VARCHAR(100),
-//       registrationDate DATE NOT NULL,
-//       registrationTime TIME NOT NULL,
-//       countryCode VARCHAR(5),
-//       resume BLOB,
-//       gender ENUM('Male', 'Female', 'Other')
-//     );
-//   `;
-//   db.query(sql, (err, result) => {
-//     if (err) {
-//       console.error('Error creating table:', err);
-//     } else {
-//       console.log('Students table created successfully.');
-//     }
-//   });
-// };
-// createUsersTable();
+const createUsersTable = () => {
+  const sql = `
+    CREATE TABLE IF NOT EXISTS students (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      studentName VARCHAR(100) NOT NULL,
+      dob DATE NOT NULL,
+      fatherName VARCHAR(100) NOT NULL,
+      mobileNumber VARCHAR(15) NOT NULL,
+      collegeName VARCHAR(100),
+      courseDetails VARCHAR(100),
+      areaOfInterest VARCHAR(100),
+      programmingSkills VARCHAR(100),
+      address VARCHAR(255),
+      yearOfPassingOut YEAR,
+      email VARCHAR(100),
+      registrationDate DATE NOT NULL,
+      registrationTime TIME NOT NULL,
+      countryCode VARCHAR(5),
+      resume BLOB,
+      gender ENUM('Male', 'Female', 'Other')
+    );
+  `;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Error creating table:', err);
+    } else {
+      console.log('Students table created successfully.');
+    }
+  });
+};
+createUsersTable();
 
 
 app.use(cors());
