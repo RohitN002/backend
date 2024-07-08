@@ -27,41 +27,37 @@ db.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
-// const connection =db
-
-// connection.connect((err) => {
-//   if (err) throw err;
-//   console.log('Connected to the database!');
-
-//   const createUsersTable = `
-//       CREATE TABLE IF NOT EXISTS Students (
-//           id INT AUTO_INCREMENT PRIMARY KEY,
-//           studentName VARCHAR(100) NOT NULL,
-//           dob DATE NOT NULL,
-//           fatherName VARCHAR(100) NOT NULL,
-//           mobileNumber VARCHAR(15) NOT NULL,
-//           collegeName VARCHAR(100),
-//           courseDetails VARCHAR(100),
-//           areaOfInterest VARCHAR(100),
-//           programmingSkills VARCHAR(100),
-//           address VARCHAR(255),
-//           yearOfPassingOut YEAR,
-//           email VARCHAR(100),
-//           registrationDate DATE NOT NULL,
-//           registrationTime TIME NOT NULL,
-//           countryCode VARCHAR(5),
-//           resume BLOB,
-//           gender ENUM('Male', 'Female', 'Other')
-//       );
+// const createUsersTable = () => {
+//   const sql = `
+//     CREATE TABLE IF NOT EXISTS Students (
+//       id INT AUTO_INCREMENT PRIMARY KEY,
+//       studentName VARCHAR(100) NOT NULL,
+//       dob DATE NOT NULL,
+//       fatherName VARCHAR(100) NOT NULL,
+//       mobileNumber VARCHAR(15) NOT NULL,
+//       collegeName VARCHAR(100),
+//       courseDetails VARCHAR(100),
+//       areaOfInterest VARCHAR(100),
+//       programmingSkills VARCHAR(100),
+//       address VARCHAR(255),
+//       yearOfPassingOut YEAR,
+//       email VARCHAR(100),
+//       registrationDate DATE NOT NULL,
+//       registrationTime TIME NOT NULL,
+//       countryCode VARCHAR(5),
+//       resume BLOB,
+//       gender ENUM('Male', 'Female', 'Other')
+//     );
 //   `;
-
-//   connection.query(createUsersTable, (err, result) => {
-//       if (err) throw err;
-//       console.log('Students table created or already exists.');
+//   db.query(sql, (err, result) => {
+//     if (err) {
+//       console.error('Error creating table:', err);
+//     } else {
+//       console.log('Students table created successfully.');
+//     }
 //   });
-
-//   connection.end();
-// });
+// };
+// createUsersTable();
 
 
 app.use(cors());
