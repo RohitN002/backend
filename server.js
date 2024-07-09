@@ -77,10 +77,19 @@ const storage = multer.diskStorage({
 const upload = multer({ 
   storage,
   fileFilter: (req, file, cb) => {
-    if (path.extname(file.originalname) !== '.pdf') {
-      return cb(new Error('Only PDF files are allowed'));
+    // Allowed file extensions
+    const filetypes = /pdf|docx/;
+    // Check file extension
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    // Check MIME type
+    const mimetypes = /application\/pdf|application\/vnd.openxmlformats-officedocument.wordprocessingml.document/;
+    const mimetype = mimetypes.test(file.mimetype);
+
+    if (extname && mimetype) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Only .pdf and .docx files are allowed'));
     }
-    cb(null, true);
   }
 });
 
