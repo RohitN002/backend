@@ -11,10 +11,7 @@ const app = express();
 const port = 3001;
 
 
-app.use(cors({
-  origin: 'https://asglobalstudentregform.bewelldentalandaestheticcare.in'
-}));
- 
+
 // Setup MongoDB connection
 mongoose.connect('mongodb+srv://rohitrandy002:BaR8eb6BIjbwKFvf@cluster0.tmrysuc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
