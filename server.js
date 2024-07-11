@@ -9,7 +9,7 @@ const ExcelJS = require('exceljs');
 const moment = require('moment-timezone');
 const app = express();
 const port = 3001;
-const cors = require('cors'); 
+
 app.use(cors());
 // Setup MongoDB connection
 mongoose.connect('mongodb+srv://rohitrandy002:BaR8eb6BIjbwKFvf@cluster0.tmrysuc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
