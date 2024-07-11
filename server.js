@@ -11,9 +11,9 @@ const app = express();
 const port = 3001;
 
 
-
+const mongo ='mongodb+srv://rohitrandy002:vXeYWxyVA6kvB82o@cluster0.njxyaps.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 // Setup MongoDB connection
-mongoose.connect('mongodb+srv://rohitrandy002:BaR8eb6BIjbwKFvf@cluster0.tmrysuc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect(mongo);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
