@@ -31,7 +31,8 @@ db.connect((err) => {
     if (err) throw err;
     console.log('Connected to database');
 });
-
+mongodb+srv://rohitrandy002:BaR8eb6BIjbwKFvf@cluster0.tmrysuc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+BaR8eb6BIjbwKFvf
 const createUsersTable = () => {
   const sql = `
       CREATE TABLE IF NOT EXISTS students (
