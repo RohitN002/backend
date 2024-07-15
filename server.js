@@ -38,6 +38,8 @@ const studentSchema = new mongoose.Schema({
   registrationTime: { type: String, required: true },
   countryCode: { type: String, maxlength: 5 },
   resume: { type: String },
+  startYear: { type: Number, required: true },  // Add startYear field
+  endYear: { type: Number, required: true } ,    // Add endYear field
   gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true }
 });
 
@@ -109,13 +111,15 @@ app.post('/api/register', upload.single('resume'), validateRegistration, async (
       yearOfPassing,
       email,
       gender,
+      startYear,  // Assign startYear and endYear to the schema fields
+      endYear
     } = req.body;
 
     const resume = req.file ? req.file.filename : null;
 
     const areasOfInterestStr = Array.isArray(areaOfInterest) ? areaOfInterest.join(',') : areaOfInterest;
     const programmingSkillsStr = Array.isArray(programmingSkills) ? programmingSkills.join(',') : programmingSkills;
-
+console.log(programmingSkillsStr)
     const registrationDate = new Date().toISOString().slice(0, 10);
     // const registrationTime = new Date().toLocaleTimeString([], { hour12: true });
 const registrationTime = moment().tz('Asia/Kolkata').format('hh:mm A'); 
@@ -135,7 +139,9 @@ const registrationTime = moment().tz('Asia/Kolkata').format('hh:mm A');
       registrationTime,
       countryCode,
       resume,
-      gender
+      gender,
+      startYear,
+      endYear
     });
 
     await student.save();
